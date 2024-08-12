@@ -1,0 +1,11 @@
+# Tune I/O Schedulers in udev.
+# Sourced from: https://wiki.archlinux.org/title/Improving_performance (2024-08-01)
+
+# Hard Drives
+ACTION=="add|change", KERNEL=="sd[a-z]*", ATTR{queue/rotational}=="1", ATTR{queue/scheduler}="bfq"
+
+# Solid State Drives
+ACTION=="add|change", KERNEL=="sd[a-z]*|mmcblk[0-9]*", ATTR{queue/rotational}=="0", ATTR{queue/scheduler}="bfq"
+
+# NVMe Solid State Drives
+ACTION=="add|change", KERNEL=="nvme[0-9]*", ATTR{queue/rotational}=="0", ATTR{queue/scheduler}="none"

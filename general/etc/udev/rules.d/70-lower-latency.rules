@@ -1,0 +1,4 @@
+# Tune Drives for fair idle queueing and lower latency in udev.
+# Sourced from: https://wiki.archlinux.org/title/Improving_performance (2025-09-01)
+
+ACTION=="add|change", KERNEL=="sd*[!0-9]|sr*|mmcblk[0-9]*|nvme[0-9]*", ATTR{queue/iosched/slice_idle}="0", ATTR{queue/iosched/low_latency}="1"

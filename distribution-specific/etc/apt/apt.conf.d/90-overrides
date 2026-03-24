@@ -1,1 +1,6 @@
+Acquire::http::AllowRedirect "false";
+Acquire::AllowInsecureRepositories "false";
+Acquire::AllowDowngradeToInsecureRepositories "false";
+APT::Get::AllowUnauthenticated "false";
+APT::Install-Suggests "false";
 APT::Sandbox::Seccomp "true";
